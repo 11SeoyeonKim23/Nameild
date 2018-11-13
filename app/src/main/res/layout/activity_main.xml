@@ -4,30 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:gravity="center"
     tools:context="catneru.kr.hs.mirim.nameilda.MainActivity"
     android:background="#41486c"
     >
 
-    <Button
-        android:id="@+id/nc_gallery"
-        android:layout_marginTop="80pt"
-        android:layout_gravity="center"
-        android:layout_width="60pt"
-        android:layout_height="wrap_content"
-        android:text="명함첩"
-        android:textSize="9pt"
-        />
-
-    <Button
-        android:id="@+id/nc_make"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:layout_width="60pt"
-        android:layout_height="wrap_content"
-        android:text="명함 제작"
-        android:textSize="8pt"
-        />
-
+    <ListView
+        android:id="@+id/my_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#ffffff"
+        android:dividerHeight="1.5dp"
+        android:choiceMode="singleChoice">
+    </ListView>
 </LinearLayout>
