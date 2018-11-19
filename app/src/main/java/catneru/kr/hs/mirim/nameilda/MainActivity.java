@@ -1,37 +1,54 @@
 package catneru.kr.hs.mirim.nameilda;
 
+import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-
+import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
-    ListView listView;
-    MyListAdapter myListAdapter;
-    ArrayList<list_item> list_itemArrayList;
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listView=(ListView)findViewById(R.id.my_listView);
 
-        list_itemArrayList = new ArrayList<list_item>();
+        /* 위젯과 멤버변수 참조 획득 */
+        mListView = (ListView)findViewById(R.id.listView);
 
-
+        /* 아이템 추가 및 어댑터 등록 */
+        dataSetting();
     }
 
-    public class Listviewitem {
-        private int icon;
-        private String name;
-        public int getIcon(){return icon;}
-        public String getName(){return name;}
-        public Listviewitem(int icon,String name){
-            this.icon=icon;
-            this.name=name;
-        }
+    private void dataSetting(){
+
+        MyAdapter mMyAdapter = new MyAdapter();
+
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(),R.drawable.seoyeon),"Seoyeon","서연의 명함임다 ㅋㅋ");
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(),R.drawable.kiryang),"Kiryang","기량의 명함임다 ㅋㅋ");
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(),R.drawable.suhyun),"Suhyun","수현의 명함임다 ㅋㅋ");
+
+        /* 리스트뷰에 어댑터 등록 */
+        mListView.setAdapter(mMyAdapter);
     }
 
 }
+
+
+
+
+
