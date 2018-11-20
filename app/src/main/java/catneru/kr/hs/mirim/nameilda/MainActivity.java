@@ -16,11 +16,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.melnykov.fab.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
+    private FloatingActionButton fab;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
         /* 리스트뷰에 어댑터 등록 */
         mListView.setAdapter(mMyAdapter);
-    }
 
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.attachToListView(mListView);
+
+    }
 }
 
 
